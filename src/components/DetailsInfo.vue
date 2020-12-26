@@ -16,7 +16,14 @@
       </tr>
       <tr>
         <td>Flag:</td>
-        <td></td>
+        <td>
+          <v-img
+            :lazy-src="country.flag"
+            max-height="25"
+            max-width="25"
+            :src="country.flag"
+          ></v-img>
+        </td>
       </tr>
     </v-simple-table>
   </v-col>
