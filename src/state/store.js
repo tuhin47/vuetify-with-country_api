@@ -22,6 +22,14 @@ const store = new Vuex.Store({
         return state.searchResults[state.selectedItem];
       } else return undefined;
     },
+    timeZones: (state) => {
+      if (
+        state.selectedItem >= 0 &&
+        state.selectedItem < state.searchResults.length
+      ) {
+        return state.searchResults[state.selectedItem].timezones;
+      } else return [];
+    },
   },
   mutations: {
     SET_SELECTED_ITEM(state, value) {

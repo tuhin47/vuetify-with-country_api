@@ -8,6 +8,9 @@
             <ResultBox />
             <DetailsInfo />
           </v-row>
+          <v-row>
+            <v-col cols="6"><TimeZoneList/></v-col>
+          </v-row>
         </v-container>
       </v-form>
     </v-main>
@@ -18,6 +21,8 @@
 import SearchComponent from "@/components/SearchComponent";
 import ResultBox from "@/components/ResultBox";
 import DetailsInfo from "@/components/DetailsInfo";
+import TimeZoneList from "@/components/TimeZoneList";
+
 
 export default {
   name: "App",
@@ -25,6 +30,7 @@ export default {
     DetailsInfo,
     ResultBox,
     SearchComponent,
+    TimeZoneList
   },
 };
 </script>

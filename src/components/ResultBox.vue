@@ -35,3 +35,9 @@ export default {
   },
 };
 </script>
+<style>
+.v-list {
+  height: 200px;
+  overflow: auto;
+}
+</style>
