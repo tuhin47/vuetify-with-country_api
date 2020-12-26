@@ -18,20 +18,20 @@ export default {
   name: "ResultBox",
   data: () => ({
     items: [],
-    selectedItem:0
+    selectedItem: null,
   }),
   computed: {
     ...mapGetters(["getResults"]),
   },
-  methods:{
-    setSelectedItem(val){
-      this.$store.commit("SET_SELECTED_ITEM",val);
-    }
+  methods: {
+    setSelectedItem(val) {
+      this.$store.commit("SET_SELECTED_ITEM", val);
+    },
   },
-  watch:{
-    selectedItem(val){
+  watch: {
+    selectedItem(val) {
       this.setSelectedItem(val);
-    }
-  }
+    },
+  },
 };
 </script>

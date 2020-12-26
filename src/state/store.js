@@ -1,13 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
     searchInput: "",
     searchResults: [],
-    selectedItem: 0,
+    selectedItem: null,
   },
   getters: {
     getResults: (state) => {
@@ -23,21 +24,27 @@ const store = new Vuex.Store({
     },
   },
   mutations: {
-    SET_SEARCH_INPUT(state, value) {
-      state.searchInput = value;
-    },
     SET_SELECTED_ITEM(state, value) {
       state.selectedItem = value;
     },
+    GET_SEARCH_RESULT(state, { data, key }) {
+      state.searchResults = data;
+      state.searchInput = key;
+    },
   },
   actions: {
-    searchForInput({ commit, state }, value) {
+    searchForInput({ commit }, key) {
+      commit("SET_SELECTED_ITEM");
       axios
-        .get(`https://restcountries.eu/rest/v2/capital/${value}`)
+        .get(`https://restcountries.eu/rest/v2/capital/${key}`)
         .then((result) => {
-          if (result.status === 200) state.searchResults = result.data;
-          else console.error(result);
-          commit("SET_SEARCH_INPUT", value);
+          if (result.status === 200) {
+            commit("GET_SEARCH_RESULT", { data: result.data, key });
+          }
+        })
+        .catch((error) => {
+          commit("GET_SEARCH_RESULT", { data: {}, key });
+          console.error(key, error);
         });
     },
   },

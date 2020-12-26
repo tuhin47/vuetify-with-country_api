@@ -1,27 +1,24 @@
 <template>
   <v-col cols="4">
     <strong>Country Details</strong>
-    <table>
+    <v-simple-table>
       <tr>
-        Country Name :
-        {{
-          country.name || ""
-        }}
+        <td>Country Name :</td>
+        <td>{{ country.name || "" }}</td>
       </tr>
       <tr>
-        Capital :{{
-          country.capital
-        }}
+        <td>Capital :</td>
+        <td>{{ country.capital || "" }}</td>
       </tr>
       <tr>
-        Language:{{
-          languages
-        }}
+        <td>Language:</td>
+        <td>{{ languages }}</td>
       </tr>
       <tr>
-        Flag:
+        <td>Flag:</td>
+        <td></td>
       </tr>
-    </table>
+    </v-simple-table>
   </v-col>
 </template>
 <script>
@@ -42,3 +39,12 @@ export default {
   },
 };
 </script>
+<style scoped>
+td {
+  text-align: left;
+}
+td:first-child {
+  text-align: right;
+  width: 50%;
+}
+</style>
