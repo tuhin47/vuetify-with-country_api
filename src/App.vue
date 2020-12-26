@@ -4,46 +4,29 @@
       <v-form>
         <v-container>
           <v-row>
-            <SearchComponent></SearchComponent>
-            <v-col
-                cols="4"
-
-            >
-              <v-text-field
-
-                  label="Last Name"
-                  filled
-                  shaped
-              ></v-text-field>
-            </v-col>
-            <v-col
-                cols="4"
-
-            >
-              <v-text-field
-
-                  label="Last Name"
-                  filled
-                  shaped
-              ></v-text-field>
-            </v-col>
+            <SearchComponent />
+            <ResultBox />
+            <DetailsInfo />
           </v-row>
         </v-container>
       </v-form>
-
     </v-main>
   </v-app>
 </template>
 
 <script>
 import SearchComponent from "@/components/SearchComponent";
+import ResultBox from "@/components/ResultBox";
+import DetailsInfo from "@/components/DetailsInfo";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    SearchComponent
-  }
-}
+    DetailsInfo,
+    ResultBox,
+    SearchComponent,
+  },
+};
 </script>
 
 <style>

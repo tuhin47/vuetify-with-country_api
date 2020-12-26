@@ -1,5 +1,6 @@
 <template>
   <v-col cols="4">
+    <strong>Search with Capital</strong>
     <v-text-field
       v-model.lazy="input"
       label="Search with Capital"
