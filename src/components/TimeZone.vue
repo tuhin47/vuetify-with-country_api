@@ -2,8 +2,8 @@
   <v-row>
     <v-col col="3">
       {{ this.time }}
-    </v-col >
-    <v-col col="9">{{ getTime }}</v-col>
+    </v-col>
+    <v-col col="9">{{ currentTime }}</v-col>
   </v-row>
 </template>
 
@@ -11,16 +11,23 @@
 export default {
   name: "TimeZone",
   props: ["time"],
-  computed: {
+  data: () => ({
+    currentTime: null
+  }),
+  created() {
+    this.getTime();
+    setInterval(this.getTime, 1000);
+  },
+  methods: {
     getTime() {
       if (this.time) {
-        return new Date(
+        this.currentTime = new Date(
           new Date().toUTCString() + this.time.substring(3)
         ).toUTCString();
         // return new Date().toLocaleTimeString();
       }
       return "";
-    },
-  },
+    }
+  }
 };
 </script>
